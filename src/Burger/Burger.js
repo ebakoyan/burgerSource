@@ -12,16 +12,16 @@ const Burger = props =>{
     let meat = [];
     let salad = [];
     for(let i=0;i<props.Count.Cheese;i++){
-        cheese.push(<Cheese/>)
+        cheese.push(<Cheese key={i}/>)
     }
     for(let i=0;i<props.Count.Bacon;i++){
-        bacon.push(<Bacon />)
+        bacon.push(<Bacon key = {i}/>)
     }
     for(let i=0;i<props.Count.Meat;i++){
-        meat.push(<Meat/>)
+        meat.push(<Meat key={i}/>)
     }
     for(let i=0;i<props.Count.Salad;i++){
-        salad.push(<Salad/>)
+        salad.push(<Salad key={i}/>)
     }
     return(
         <div style={{width: "600px",margin:"0 auto"}}>
