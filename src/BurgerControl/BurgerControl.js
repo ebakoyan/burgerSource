@@ -6,7 +6,14 @@ const BurgerControl = (props) => {
     //     myNewState.Salad=2;
     //     props.setMyState(myNewState)
     // }
-    let buttonList=[];
+    // let buttonList=props.type.forEach((type,i) => {
+    //     <button 
+    //         key={"a"+i}
+    //         className = "btn btn-success" 
+    //         onClick= {()=>props.add(type)}>Add {`${type}`}
+    //     </button>
+    // });;
+    let buttonList=[]
     for(let i=0;i<props.type.length;i++){
         buttonList.push(
             <button 

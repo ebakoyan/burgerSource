@@ -7,15 +7,20 @@ import BurgerControl from './BurgerControl/BurgerControl'
 class App extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {
-      list:{
-        Salad: 0,
-        Bacon: 0,
-        Meat: 0,
-        Cheese: 0,
-      },
-      type:["Salad","Bacon","Meat","Cheese"]
-    };
+    if(localStorage.getItem('state')!==null){
+      this.state=JSON.parse( localStorage.getItem('state'))
+    }
+    else{
+      this.state = {
+        list:{
+          Salad: 0,
+          Bacon: 0,
+          Meat: 0,
+          Cheese: 0,
+        },
+        type:["Salad","Bacon","Meat","Cheese"]
+      };
+  }
   }
   add = (item)=>{
     const oldItem = this.state.list[item]
@@ -24,7 +29,9 @@ class App extends React.Component{
       ...this.state.list
     }
     updateStateItem[item]=updateItem;
-    this.setState({list: updateStateItem})
+    this.setState({list: updateStateItem},()=>{
+      localStorage.setItem("state",JSON.stringify(this.state))
+    })
   }
   render(){
     return(
